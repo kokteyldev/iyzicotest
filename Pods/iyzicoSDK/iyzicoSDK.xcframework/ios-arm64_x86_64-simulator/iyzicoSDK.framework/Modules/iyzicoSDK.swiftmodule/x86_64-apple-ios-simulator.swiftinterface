@@ -1,0 +1,718 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name iyzicoSDK
+import Alamofire
+import CommonCrypto
+import CommonCrypto.CommonHMAC
+import CoreGraphics
+import CryptoKit
+import Foundation
+import Lottie
+import QuartzCore
+import SVGKit
+import Swift
+import UIKit
+import WebKit
+import _Concurrency
+@_exported import iyzicoSDK
+@available(iOSApplicationExtension, unavailable)
+extension iyzicoSDK.IQKeyboardManager {
+  @objc final public var movedDistance: CoreGraphics.CGFloat {
+    @objc get
+  }
+  @objc final public var movedDistanceChanged: ((CoreGraphics.CGFloat) -> Swift.Void)? {
+    @objc get
+    @objc set(newValue)
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOSApplicationExtension, unavailable)
+@objc final public class IQKeyboardManager : ObjectiveC.NSObject {
+  @objc public static let shared: iyzicoSDK.IQKeyboardManager
+  @objc final public var enable: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc final public var keyboardDistanceFromTextField: CoreGraphics.CGFloat
+  @objc final public var enableAutoToolbar: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc final public var toolbarManageBehaviour: iyzicoSDK.IQAutoToolbarManageBehaviour
+  @objc final public var shouldToolbarUsesTextFieldTintColor: Swift.Bool
+  @objc final public var toolbarTintColor: UIKit.UIColor?
+  @objc final public var toolbarBarTintColor: UIKit.UIColor?
+  @objc final public var previousNextDisplayMode: iyzicoSDK.IQPreviousNextDisplayMode
+  @objc final public var toolbarPreviousBarButtonItemImage: UIKit.UIImage?
+  @objc final public var toolbarNextBarButtonItemImage: UIKit.UIImage?
+  @objc final public var toolbarDoneBarButtonItemImage: UIKit.UIImage?
+  @objc final public var toolbarPreviousBarButtonItemText: Swift.String?
+  @objc final public var toolbarPreviousBarButtonItemAccessibilityLabel: Swift.String?
+  @objc final public var toolbarNextBarButtonItemText: Swift.String?
+  @objc final public var toolbarNextBarButtonItemAccessibilityLabel: Swift.String?
+  @objc final public var toolbarDoneBarButtonItemText: Swift.String?
+  @objc final public var toolbarDoneBarButtonItemAccessibilityLabel: Swift.String?
+  @objc final public var shouldShowToolbarPlaceholder: Swift.Bool
+  @objc final public var placeholderFont: UIKit.UIFont?
+  @objc final public var placeholderColor: UIKit.UIColor?
+  @objc final public var placeholderButtonColor: UIKit.UIColor?
+  @objc final public var overrideKeyboardAppearance: Swift.Bool
+  @objc final public var keyboardAppearance: UIKit.UIKeyboardAppearance
+  @objc final public var shouldResignOnTouchOutside: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc final public var resignFirstResponderGesture: UIKit.UITapGestureRecognizer {
+    @objc get
+    @objc set
+  }
+  @discardableResult
+  @objc final public func resignFirstResponder() -> Swift.Bool
+  @objc final public var shouldPlayInputClicks: Swift.Bool
+  @objc final public var layoutIfNeededOnUpdate: Swift.Bool
+  @objc final public var disabledDistanceHandlingClasses: [UIKit.UIViewController.Type]
+  @objc final public var enabledDistanceHandlingClasses: [UIKit.UIViewController.Type]
+  @objc final public var disabledToolbarClasses: [UIKit.UIViewController.Type]
+  @objc final public var enabledToolbarClasses: [UIKit.UIViewController.Type]
+  @objc final public var toolbarPreviousNextAllowedClasses: [UIKit.UIView.Type]
+  @objc final public var disabledTouchResignedClasses: [UIKit.UIViewController.Type]
+  @objc final public var enabledTouchResignedClasses: [UIKit.UIViewController.Type]
+  @objc final public var touchResignedGestureIgnoreClasses: [UIKit.UIView.Type]
+  @objc final public func registerTextFieldViewClass(_ aClass: UIKit.UIView.Type, didBeginEditingNotificationName: Swift.String, didEndEditingNotificationName: Swift.String)
+  @objc final public func unregisterTextFieldViewClass(_ aClass: UIKit.UIView.Type, didBeginEditingNotificationName: Swift.String, didEndEditingNotificationName: Swift.String)
+  @objc deinit
+  @objc final public func reloadLayoutIfNeeded()
+}
+@available(iOSApplicationExtension, unavailable)
+extension iyzicoSDK.IQKeyboardManager : UIKit.UIGestureRecognizerDelegate {
+  @objc @_Concurrency.MainActor(unsafe) final public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) final public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldReceive touch: UIKit.UITouch) -> Swift.Bool
+}
+@available(iOSApplicationExtension, unavailable)
+@objc public enum IQAutoToolbarManageBehaviour : Swift.Int {
+  case bySubviews
+  case byTag
+  case byPosition
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@available(iOSApplicationExtension, unavailable)
+@objc public enum IQPreviousNextDisplayMode : Swift.Int {
+  case `default`
+  case alwaysHide
+  case alwaysShow
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@available(iOSApplicationExtension, unavailable)
+@objc public enum IQEnableMode : Swift.Int {
+  case `default`
+  case enabled
+  case disabled
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @available(iOSApplicationExtension, unavailable)
+@objc @_Concurrency.MainActor(unsafe) open class IQTextView : UIKit.UITextView {
+  @objc @_Concurrency.MainActor(unsafe) required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc @_Concurrency.MainActor(unsafe) override dynamic public init(frame: CoreGraphics.CGRect, textContainer: UIKit.NSTextContainer?)
+  @objc override dynamic open func awakeFromNib()
+  @objc deinit
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) open var placeholderTextColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) open var placeholder: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) open var attributedPlaceholder: Foundation.NSAttributedString? {
+    get
+    set
+  }
+  @objc @_Concurrency.MainActor(unsafe) override dynamic open func layoutSubviews()
+  @objc @_Concurrency.MainActor(unsafe) override dynamic open var text: Swift.String! {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var attributedText: Foundation.NSAttributedString! {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) override dynamic open var font: UIKit.UIFont? {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) override dynamic open var textAlignment: UIKit.NSTextAlignment {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) override weak dynamic open var delegate: UIKit.UITextViewDelegate? {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) override dynamic open var intrinsicContentSize: CoreGraphics.CGSize {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOSApplicationExtension, unavailable)
+@objc @_Concurrency.MainActor(unsafe) open class IQToolbar : UIKit.UIToolbar, UIKit.UIInputViewAudioFeedback {
+  @objc @_Concurrency.MainActor(unsafe) open var previousBarButton: iyzicoSDK.IQBarButtonItem {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc @_Concurrency.MainActor(unsafe) open var nextBarButton: iyzicoSDK.IQBarButtonItem {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc @_Concurrency.MainActor(unsafe) open var titleBarButton: iyzicoSDK.IQTitleBarButtonItem {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc @_Concurrency.MainActor(unsafe) open var doneBarButton: iyzicoSDK.IQBarButtonItem {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc @_Concurrency.MainActor(unsafe) open var fixedSpaceBarButton: iyzicoSDK.IQBarButtonItem {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc @_Concurrency.MainActor(unsafe) required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc @_Concurrency.MainActor(unsafe) override dynamic open func sizeThatFits(_ size: CoreGraphics.CGSize) -> CoreGraphics.CGSize
+  @objc @_Concurrency.MainActor(unsafe) override dynamic open var tintColor: UIKit.UIColor! {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) override dynamic open func layoutSubviews()
+  @objc @_Concurrency.MainActor(unsafe) open var enableInputClicksWhenVisible: Swift.Bool {
+    @objc get
+  }
+  @objc deinit
+}
+extension UIKit.UIFont {
+  public class var markProMedium13: UIKit.UIFont {
+    get
+  }
+}
+extension UIKit.UIFont {
+  public static func registerFont(withFilenameString filenameString: Swift.String, bundle: Foundation.Bundle = Bundle(identifier: StringConstant.shared.frameworkBundle)!)
+}
+@available(iOSApplicationExtension, unavailable)
+@objc final public class IQBarButtonItemConfiguration : ObjectiveC.NSObject {
+  @objc public init(barButtonSystemItem: UIKit.UIBarButtonItem.SystemItem, action: ObjectiveC.Selector)
+  @objc public init(image: UIKit.UIImage, action: ObjectiveC.Selector)
+  @objc public init(title: Swift.String, action: ObjectiveC.Selector)
+  final public let barButtonSystemItem: UIKit.UIBarButtonItem.SystemItem?
+  @objc final public let image: UIKit.UIImage?
+  @objc final public let title: Swift.String?
+  @objc final public let action: ObjectiveC.Selector?
+  @objc deinit
+}
+@available(iOSApplicationExtension, unavailable)
+@objc extension UIKit.UIImage {
+  @objc public static func keyboardLeftImage() -> UIKit.UIImage?
+  @objc public static func keyboardRightImage() -> UIKit.UIImage?
+  @objc public static func keyboardUpImage() -> UIKit.UIImage?
+  @objc public static func keyboardDownImage() -> UIKit.UIImage?
+  @objc public static func keyboardPreviousImage() -> UIKit.UIImage?
+  @objc public static func keyboardNextImage() -> UIKit.UIImage?
+}
+@available(iOSApplicationExtension, unavailable)
+@objc extension UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var keyboardToolbar: iyzicoSDK.IQToolbar {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var shouldHideToolbarPlaceholder: Swift.Bool {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var toolbarPlaceholder: Swift.String? {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var drawingToolbarPlaceholder: Swift.String? {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addKeyboardToolbarWithTarget(target: Swift.AnyObject?, titleText: Swift.String?, rightBarButtonConfiguration: iyzicoSDK.IQBarButtonItemConfiguration?, previousBarButtonConfiguration: iyzicoSDK.IQBarButtonItemConfiguration? = nil, nextBarButtonConfiguration: iyzicoSDK.IQBarButtonItemConfiguration? = nil)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addDoneOnKeyboardWithTarget(_ target: Swift.AnyObject?, action: ObjectiveC.Selector, shouldShowPlaceholder: Swift.Bool = false)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addDoneOnKeyboardWithTarget(_ target: Swift.AnyObject?, action: ObjectiveC.Selector, titleText: Swift.String?)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addRightButtonOnKeyboardWithImage(_ image: UIKit.UIImage, target: Swift.AnyObject?, action: ObjectiveC.Selector, shouldShowPlaceholder: Swift.Bool = false)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addRightButtonOnKeyboardWithImage(_ image: UIKit.UIImage, target: Swift.AnyObject?, action: ObjectiveC.Selector, titleText: Swift.String?)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addRightButtonOnKeyboardWithText(_ text: Swift.String, target: Swift.AnyObject?, action: ObjectiveC.Selector, shouldShowPlaceholder: Swift.Bool = false)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addRightButtonOnKeyboardWithText(_ text: Swift.String, target: Swift.AnyObject?, action: ObjectiveC.Selector, titleText: Swift.String?)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addCancelDoneOnKeyboardWithTarget(_ target: Swift.AnyObject?, cancelAction: ObjectiveC.Selector, doneAction: ObjectiveC.Selector, shouldShowPlaceholder: Swift.Bool = false)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addRightLeftOnKeyboardWithTarget(_ target: Swift.AnyObject?, leftButtonTitle: Swift.String, rightButtonTitle: Swift.String, leftButtonAction: ObjectiveC.Selector, rightButtonAction: ObjectiveC.Selector, shouldShowPlaceholder: Swift.Bool = false)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addRightLeftOnKeyboardWithTarget(_ target: Swift.AnyObject?, leftButtonImage: UIKit.UIImage, rightButtonImage: UIKit.UIImage, leftButtonAction: ObjectiveC.Selector, rightButtonAction: ObjectiveC.Selector, shouldShowPlaceholder: Swift.Bool = false)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addCancelDoneOnKeyboardWithTarget(_ target: Swift.AnyObject?, cancelAction: ObjectiveC.Selector, doneAction: ObjectiveC.Selector, titleText: Swift.String?)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addRightLeftOnKeyboardWithTarget(_ target: Swift.AnyObject?, leftButtonTitle: Swift.String, rightButtonTitle: Swift.String, leftButtonAction: ObjectiveC.Selector, rightButtonAction: ObjectiveC.Selector, titleText: Swift.String?)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addRightLeftOnKeyboardWithTarget(_ target: Swift.AnyObject?, leftButtonImage: UIKit.UIImage, rightButtonImage: UIKit.UIImage, leftButtonAction: ObjectiveC.Selector, rightButtonAction: ObjectiveC.Selector, titleText: Swift.String?)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addPreviousNextDoneOnKeyboardWithTarget(_ target: Swift.AnyObject?, previousAction: ObjectiveC.Selector, nextAction: ObjectiveC.Selector, doneAction: ObjectiveC.Selector, shouldShowPlaceholder: Swift.Bool = false)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addPreviousNextRightOnKeyboardWithTarget(_ target: Swift.AnyObject?, rightButtonImage: UIKit.UIImage, previousAction: ObjectiveC.Selector, nextAction: ObjectiveC.Selector, rightButtonAction: ObjectiveC.Selector, shouldShowPlaceholder: Swift.Bool = false)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addPreviousNextRightOnKeyboardWithTarget(_ target: Swift.AnyObject?, rightButtonTitle: Swift.String, previousAction: ObjectiveC.Selector, nextAction: ObjectiveC.Selector, rightButtonAction: ObjectiveC.Selector, shouldShowPlaceholder: Swift.Bool = false)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addPreviousNextDoneOnKeyboardWithTarget(_ target: Swift.AnyObject?, previousAction: ObjectiveC.Selector, nextAction: ObjectiveC.Selector, doneAction: ObjectiveC.Selector, titleText: Swift.String?)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addPreviousNextRightOnKeyboardWithTarget(_ target: Swift.AnyObject?, rightButtonImage: UIKit.UIImage, previousAction: ObjectiveC.Selector, nextAction: ObjectiveC.Selector, rightButtonAction: ObjectiveC.Selector, titleText: Swift.String?)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func addPreviousNextRightOnKeyboardWithTarget(_ target: Swift.AnyObject?, rightButtonTitle: Swift.String, previousAction: ObjectiveC.Selector, nextAction: ObjectiveC.Selector, rightButtonAction: ObjectiveC.Selector, titleText: Swift.String?)
+}
+@_hasMissingDesignatedInitializers open class StringConstant {
+  public static let shared: iyzicoSDK.StringConstant
+  final public let frameworkBundle: Swift.String
+  final public let externalBorderName: Swift.String
+  final public let introTitle: Swift.String
+  final public let introBody: Swift.String
+  final public let phoneVCTermString: Swift.String
+  final public let phoneVCTermHighletedString: Swift.String
+  @objc deinit
+}
+extension iyzicoSDK.StringConstant {
+  open func registerFonts()
+}
+@available(iOSApplicationExtension, unavailable)
+public let kIQUseDefaultKeyboardDistance: CoreGraphics.CGFloat
+@available(iOSApplicationExtension, unavailable)
+@objc extension UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var keyboardDistanceFromTextField: CoreGraphics.CGFloat {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var ignoreSwitchingByNextPrevious: Swift.Bool {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var enableMode: iyzicoSDK.IQEnableMode {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var shouldResignOnTouchOutsideMode: iyzicoSDK.IQEnableMode {
+    @objc get
+    @objc set(newValue)
+  }
+}
+@available(iOSApplicationExtension, unavailable)
+@objc extension UIKit.UIViewController {
+  @objc @_Concurrency.MainActor(unsafe) dynamic open func parentIQContainerViewController() -> UIKit.UIViewController?
+  @objc @available(*, deprecated, message: "Due to change in core-logic of handling distance between textField and keyboard distance, this layout contraint tweak is no longer needed and things will just work out of the box regardless of constraint pinned with safeArea/layoutGuide/superview.")
+  @IBOutlet @_Concurrency.MainActor(unsafe) dynamic public var IQLayoutGuideConstraint: UIKit.NSLayoutConstraint? {
+    @objc get
+    @objc set(newValue)
+  }
+}
+@objc public enum ResultCode : Swift.Int, Swift.CaseIterable {
+  case languageError = 1
+  case error = 2
+  case timeOut = 3
+  case phoneError = 4
+  case emailError = 5
+  case brandError = 6
+  case priceError = 7
+  case productIDError = 8
+  case walletPriceError = 9
+  case clientIpError = 10
+  case clientIdError = 11
+  case clientSecretKeyError = 12
+  case baseUrlError = 13
+  case merchantApiKeyError = 14
+  case merchantSecretKeyError = 15
+  case paidPriceError = 16
+  case urlCallbackError = 17
+  case enabledinstallmentError = 18
+  case basketIDError = 19
+  case buyerIDError = 20
+  case buyerNameError = 21
+  case buyerSurnameError = 22
+  case buyerIdentityNumberError = 23
+  case buyerCityError = 24
+  case buyerCountryError = 25
+  case buyerEmailError = 26
+  case buyerPhoneError = 27
+  case buyerIPError = 28
+  case buyerRegistrationAddressError = 29
+  case closedTransactionError = 30
+  case basketProductPriceError = 31
+  case basketProductItemTypeError = 32
+  case billingContactNameError = 33
+  case billingCityError = 34
+  case shippingCountryError = 35
+  case shippingAddressError = 36
+  case emptyBasketError = 37
+  case fullBasketError = 38
+  case basketProductIdError = 39
+  case basketProductNameError = 40
+  case basketProductCategoryError = 41
+  case billingAdressError = 42
+  case shippingContactNameError = 43
+  case shippingCityError = 44
+  case billingCountryError = 45
+  case success = 99
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [iyzicoSDK.ResultCode]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [iyzicoSDK.ResultCode] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum Language : Swift.Int, Swift.CaseIterable {
+  case TURKISH = 0
+  case ENGLISH
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [iyzicoSDK.Language]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [iyzicoSDK.Language] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum Currency : Swift.Int, Swift.CaseIterable {
+  case TRY = 0
+  case USD
+  case EUR
+  case GBP
+  case IRR
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [iyzicoSDK.Currency]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [iyzicoSDK.Currency] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum PaymentGroup : Swift.Int, Swift.CaseIterable {
+  case PRODUCT = 0
+  case LISTING
+  case SUBSCRIPTION
+  case none
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [iyzicoSDK.PaymentGroup]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [iyzicoSDK.PaymentGroup] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum BasketItemType : Swift.Int, Swift.CaseIterable {
+  case PHYSICAL
+  case VIRTUAL
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [iyzicoSDK.BasketItemType]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [iyzicoSDK.BasketItemType] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers @objc public class Iyzico : ObjectiveC.NSObject {
+  @objc public static let shared: iyzicoSDK.Iyzico
+  @objc weak public static var delegate: iyzicoSDK.IyzicoDelegate?
+  @objc deinit
+}
+@objc extension iyzicoSDK.Iyzico {
+  @objc dynamic public func startPayWithIyzico(brand: Swift.String, price: Swift.Double, paidPrice: Swift.Double, currency: iyzicoSDK.Currency = Currency.TRY, enabledInstallments: [Swift.Int], basketId: Swift.String, paymentGroup: iyzicoSDK.PaymentGroup = .PRODUCT, paymentSource: Swift.String, urlCallback: Swift.String, buyerId: Swift.String, buyerName: Swift.String, buyerSurname: Swift.String, buyerIdentityNumber: Swift.String, buyerCity: Swift.String, buyerCountry: Swift.String, buyerEmail: Swift.String, buyerPhone: Swift.String, buyerIp: Swift.String, buyerRegistrationAddress: Swift.String, buyerRegistrationDate: Swift.String, buyerLastLoginDate: Swift.String, billingContactName: Swift.String, billingCity: Swift.String, billingCountry: Swift.String, billingAddress: Swift.String, shippingContactName: Swift.String, shippingCity: Swift.String, shippingCountry: Swift.String, shippingAddress: Swift.String, basketItemList: [iyzicoSDK.IyzicoBasketItem])
+  @objc dynamic public func startTopUp(buyerEmail: Swift.String, buyerPhone: Swift.String, buyerName: Swift.String? = nil, buyerSurname: Swift.String? = nil)
+  @objc dynamic public func startCashOut(buyerEmail: Swift.String, buyerPhone: Swift.String, walletPrice: Swift.Double, buyerName: Swift.String? = nil, buyerSurname: Swift.String? = nil)
+}
+@objc extension iyzicoSDK.Iyzico {
+  @objc dynamic public func initialize(clientIp: Swift.String, clientId: Swift.String, clientSecret: Swift.String, baseUrl: Swift.String, merchantApiKey: Swift.String? = nil, merchantSecretKey: Swift.String? = nil, language: iyzicoSDK.Language)
+  @objc dynamic public func showError(errorDescription: Swift.String?)
+}
+@available(iOSApplicationExtension, unavailable)
+@objc extension UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func viewContainingController() -> UIKit.UIViewController?
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func topMostController() -> UIKit.UIViewController?
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func parentContainerViewController() -> UIKit.UIViewController?
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func superviewOfClassType(_ classType: UIKit.UIView.Type, belowView: UIKit.UIView? = nil) -> UIKit.UIView?
+}
+public struct Buyer {
+  public let id: Swift.String?, name: Swift.String?, surname: Swift.String?, identityNumber: Swift.String?
+  public let email: Swift.String?, gsmNumber: Swift.String?, registrationAddress: Swift.String?, city: Swift.String?
+  public let country: Swift.String?, ip: Swift.String?
+  public init(id: Swift.String?, name: Swift.String?, surname: Swift.String?, identityNumber: Swift.String?, email: Swift.String?, gsmNumber: Swift.String?, registrationAddress: Swift.String?, city: Swift.String?, country: Swift.String?, ip: Swift.String?)
+}
+extension UIKit.UIResponder {
+  @_Concurrency.MainActor(unsafe) public var parentViewController: UIKit.UIViewController? {
+    get
+  }
+}
+public struct PWIAddress {
+  public let address: Swift.String?, contactName: Swift.String?, city: Swift.String?, country: Swift.String?
+  public init(address: Swift.String?, contactName: Swift.String?, city: Swift.String?, country: Swift.String?)
+}
+@_inheritsConvenienceInitializers @available(iOSApplicationExtension, unavailable)
+@objc @_Concurrency.MainActor(unsafe) open class IQPreviousNextView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOSApplicationExtension, unavailable)
+@objc @_Concurrency.MainActor(unsafe) open class IQTitleBarButtonItem : iyzicoSDK.IQBarButtonItem {
+  @objc @_Concurrency.MainActor(unsafe) open var titleFont: UIKit.UIFont? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) override dynamic open var title: Swift.String? {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) open var titleColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) open var selectableTitleColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) override open var invocation: iyzicoSDK.IQInvocation? {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) convenience public init(title: Swift.String?)
+  @objc @_Concurrency.MainActor(unsafe) required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@nonobjc extension UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) public func add(_ child: UIKit.UIViewController, containerView: UIKit.UIView? = nil)
+  @_Concurrency.MainActor(unsafe) public func remove()
+}
+extension UIKit.UILabel {
+  @_Concurrency.MainActor(unsafe) public func startTimer(time: Swift.Int, completionHandler: ((Swift.Int) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) public func startTimerWithReturn(time: Swift.Int, completionHandler: ((Swift.Int) -> Swift.Void)? = nil) -> Foundation.Timer
+}
+@available(iOSApplicationExtension, unavailable)
+@objc final public class IQInvocation : ObjectiveC.NSObject {
+  @objc weak final public var target: Swift.AnyObject?
+  @objc final public var action: ObjectiveC.Selector
+  @objc public init(_ target: Swift.AnyObject, _ action: ObjectiveC.Selector)
+  @objc final public func invoke(from: Any)
+  @objc deinit
+}
+@objc public class IyzicoBasketItem : ObjectiveC.NSObject {
+  final public let id: Swift.String?, price: Swift.String?, name: Swift.String?, category1: Swift.String?
+  final public let itemType: Swift.String?, subMerchantKey: Swift.String?, subMerchantPrice: Swift.String?
+  public init(itemCategory: Swift.String, productId: Swift.String?, itemType: Swift.String, itemName: Swift.String, price: Swift.String?, subMerchantKey: Swift.String?, subMerchantPrice: Swift.String?)
+  @objc deinit
+}
+@available(iOSApplicationExtension, unavailable)
+extension iyzicoSDK.IQKeyboardManager {
+  @objc final public func reloadInputViews()
+}
+@available(iOSApplicationExtension, unavailable)
+extension iyzicoSDK.IQKeyboardManager {
+  @objc final public var canGoPrevious: Swift.Bool {
+    @objc get
+  }
+  @objc final public var canGoNext: Swift.Bool {
+    @objc get
+  }
+  @discardableResult
+  @objc final public func goPrevious() -> Swift.Bool
+  @discardableResult
+  @objc final public func goNext() -> Swift.Bool
+}
+@objc public protocol IyzicoDelegate {
+  @objc func didOperationSuccess(message: Swift.String)
+  @objc func didOperationFailed(state: iyzicoSDK.ResultCode, message: Swift.String)
+}
+extension UIKit.UIColor {
+  @nonobjc public class var clearBlue: UIKit.UIColor {
+    get
+  }
+  @nonobjc public class var darkGrey: UIKit.UIColor {
+    get
+  }
+  @nonobjc public class var blueGrey: UIKit.UIColor {
+    get
+  }
+  @nonobjc public class var gunmetal: UIKit.UIColor {
+    get
+  }
+  @nonobjc public class var silver: UIKit.UIColor {
+    get
+  }
+  @nonobjc public class var paleGrey: UIKit.UIColor {
+    get
+  }
+  @nonobjc public class var white2: UIKit.UIColor {
+    get
+  }
+  @nonobjc public class var yellowOrange: UIKit.UIColor {
+    get
+  }
+  @nonobjc public class var clearBlueTwo: UIKit.UIColor {
+    get
+  }
+  @nonobjc public class var lightSkyBlue: UIKit.UIColor {
+    get
+  }
+  @nonobjc public class var darkGreyWithAlpha08: UIKit.UIColor {
+    get
+  }
+  @nonobjc public class var lineWhite: UIKit.UIColor {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @available(iOSApplicationExtension, unavailable)
+@objc @_Concurrency.MainActor(unsafe) open class IQBarButtonItem : UIKit.UIBarButtonItem {
+  @objc override dynamic public init()
+  @objc @_Concurrency.MainActor(unsafe) required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc @_Concurrency.MainActor(unsafe) override dynamic open var tintColor: UIKit.UIColor? {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) open func setTarget(_ target: Swift.AnyObject?, action: ObjectiveC.Selector?)
+  @objc @_Concurrency.MainActor(unsafe) open var invocation: iyzicoSDK.IQInvocation?
+  @objc deinit
+}
+@available(iOSApplicationExtension, unavailable)
+@objc extension UIKit.UIScrollView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var shouldIgnoreScrollingAdjustment: Swift.Bool {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var shouldIgnoreContentInsetAdjustment: Swift.Bool {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var shouldRestoreScrollViewContentOffset: Swift.Bool {
+    @objc get
+    @objc set(newValue)
+  }
+}
+public enum Model : Swift.String {
+  case simulator, iPhone4, iPhone4S, iPhone5, iPhone5S, iPhone5C, iPhone6, iPhone6Plus, iPhone6S, iPhone6SPlus, iPhoneSE, iPhone7, iPhone7Plus, iPhone8, iPhone8Plus, iPhoneX, iPhoneXS, iPhoneXSMax, iPhoneXR, iPhone11, iPhone11Pro, iPhone11ProMax, iPhoneSE2, iPhone12Mini, iPhone12, iPhone12Pro, iPhone12ProMax, unrecognized
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension UIKit.UIDevice {
+  @_Concurrency.MainActor(unsafe) public var type: iyzicoSDK.Model {
+    get
+  }
+}
+extension UIKit.UILabel {
+  @_Concurrency.MainActor(unsafe) public func securePhoneText(number: Swift.String)
+}
+@available(iOSApplicationExtension, unavailable)
+extension iyzicoSDK.IQKeyboardManager {
+  @objc final public var keyboardShowing: Swift.Bool {
+    @objc get
+  }
+  @objc final public var keyboardFrame: CoreGraphics.CGRect {
+    @objc get
+  }
+}
+@_inheritsConvenienceInitializers @available(iOSApplicationExtension, unavailable)
+@objc final public class IQKeyboardReturnKeyHandler : ObjectiveC.NSObject {
+  @objc weak final public var delegate: (UIKit.UITextFieldDelegate & UIKit.UITextViewDelegate)?
+  @objc final public var lastTextFieldReturnKeyType: UIKit.UIReturnKeyType {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc public init(controller: UIKit.UIViewController)
+  @objc deinit
+  @objc final public func addTextFieldView(_ view: UIKit.UIView)
+  @objc final public func removeTextFieldView(_ view: UIKit.UIView)
+  @objc final public func addResponderFromView(_ view: UIKit.UIView)
+  @objc final public func removeResponderFromView(_ view: UIKit.UIView)
+}
+@available(iOSApplicationExtension, unavailable)
+extension iyzicoSDK.IQKeyboardReturnKeyHandler : UIKit.UITextFieldDelegate {
+  @objc @_Concurrency.MainActor(unsafe) final public func textFieldShouldBeginEditing(_ textField: UIKit.UITextField) -> Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) final public func textFieldShouldEndEditing(_ textField: UIKit.UITextField) -> Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) final public func textFieldDidBeginEditing(_ textField: UIKit.UITextField)
+  @objc @_Concurrency.MainActor(unsafe) final public func textFieldDidEndEditing(_ textField: UIKit.UITextField)
+  @available(iOS 10.0, *)
+  @objc @_Concurrency.MainActor(unsafe) final public func textFieldDidEndEditing(_ textField: UIKit.UITextField, reason: UIKit.UITextField.DidEndEditingReason)
+  @objc @_Concurrency.MainActor(unsafe) final public func textField(_ textField: UIKit.UITextField, shouldChangeCharactersIn range: Foundation.NSRange, replacementString string: Swift.String) -> Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) final public func textFieldShouldClear(_ textField: UIKit.UITextField) -> Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) final public func textFieldShouldReturn(_ textField: UIKit.UITextField) -> Swift.Bool
+}
+@available(iOSApplicationExtension, unavailable)
+extension iyzicoSDK.IQKeyboardReturnKeyHandler : UIKit.UITextViewDelegate {
+  @objc @_Concurrency.MainActor(unsafe) final public func textViewShouldBeginEditing(_ textView: UIKit.UITextView) -> Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) final public func textViewShouldEndEditing(_ textView: UIKit.UITextView) -> Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) final public func textViewDidBeginEditing(_ textView: UIKit.UITextView)
+  @objc @_Concurrency.MainActor(unsafe) final public func textViewDidEndEditing(_ textView: UIKit.UITextView)
+  @objc @_Concurrency.MainActor(unsafe) final public func textView(_ textView: UIKit.UITextView, shouldChangeTextIn range: Foundation.NSRange, replacementText text: Swift.String) -> Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) final public func textViewDidChange(_ textView: UIKit.UITextView)
+  @objc @_Concurrency.MainActor(unsafe) final public func textViewDidChangeSelection(_ textView: UIKit.UITextView)
+  @available(iOS 10.0, *)
+  @objc @_Concurrency.MainActor(unsafe) final public func textView(_ aTextView: UIKit.UITextView, shouldInteractWith URL: Foundation.URL, in characterRange: Foundation.NSRange, interaction: UIKit.UITextItemInteraction) -> Swift.Bool
+  @available(iOS 10.0, *)
+  @objc @_Concurrency.MainActor(unsafe) final public func textView(_ aTextView: UIKit.UITextView, shouldInteractWith textAttachment: UIKit.NSTextAttachment, in characterRange: Foundation.NSRange, interaction: UIKit.UITextItemInteraction) -> Swift.Bool
+  @available(iOS, deprecated: 10.0)
+  @objc @_Concurrency.MainActor(unsafe) final public func textView(_ aTextView: UIKit.UITextView, shouldInteractWith URL: Foundation.URL, in characterRange: Foundation.NSRange) -> Swift.Bool
+  @available(iOS, deprecated: 10.0)
+  @objc @_Concurrency.MainActor(unsafe) final public func textView(_ aTextView: UIKit.UITextView, shouldInteractWith textAttachment: UIKit.NSTextAttachment, in characterRange: Foundation.NSRange) -> Swift.Bool
+}
+extension Swift.String {
+  public var isBackspace: Swift.Bool {
+    get
+  }
+}
+@available(iOSApplicationExtension, unavailable)
+extension iyzicoSDK.IQKeyboardManager {
+  @objc final public var enableDebugging: Swift.Bool {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc final public func registerAllNotifications()
+  @objc final public func unregisterAllNotifications()
+  public struct Static {
+  }
+}
+@available(iOSApplicationExtension, unavailable)
+extension iyzicoSDK.IQAutoToolbarManageBehaviour : Swift.Equatable {}
+@available(iOSApplicationExtension, unavailable)
+extension iyzicoSDK.IQAutoToolbarManageBehaviour : Swift.Hashable {}
+@available(iOSApplicationExtension, unavailable)
+extension iyzicoSDK.IQAutoToolbarManageBehaviour : Swift.RawRepresentable {}
+@available(iOSApplicationExtension, unavailable)
+extension iyzicoSDK.IQPreviousNextDisplayMode : Swift.Equatable {}
+@available(iOSApplicationExtension, unavailable)
+extension iyzicoSDK.IQPreviousNextDisplayMode : Swift.Hashable {}
+@available(iOSApplicationExtension, unavailable)
+extension iyzicoSDK.IQPreviousNextDisplayMode : Swift.RawRepresentable {}
+@available(iOSApplicationExtension, unavailable)
+extension iyzicoSDK.IQEnableMode : Swift.Equatable {}
+@available(iOSApplicationExtension, unavailable)
+extension iyzicoSDK.IQEnableMode : Swift.Hashable {}
+@available(iOSApplicationExtension, unavailable)
+extension iyzicoSDK.IQEnableMode : Swift.RawRepresentable {}
+extension iyzicoSDK.ResultCode : Swift.Equatable {}
+extension iyzicoSDK.ResultCode : Swift.Hashable {}
+extension iyzicoSDK.ResultCode : Swift.RawRepresentable {}
+extension iyzicoSDK.Language : Swift.Equatable {}
+extension iyzicoSDK.Language : Swift.Hashable {}
+extension iyzicoSDK.Language : Swift.RawRepresentable {}
+extension iyzicoSDK.Currency : Swift.Equatable {}
+extension iyzicoSDK.Currency : Swift.Hashable {}
+extension iyzicoSDK.Currency : Swift.RawRepresentable {}
+extension iyzicoSDK.PaymentGroup : Swift.Equatable {}
+extension iyzicoSDK.PaymentGroup : Swift.Hashable {}
+extension iyzicoSDK.PaymentGroup : Swift.RawRepresentable {}
+extension iyzicoSDK.BasketItemType : Swift.Equatable {}
+extension iyzicoSDK.BasketItemType : Swift.Hashable {}
+extension iyzicoSDK.BasketItemType : Swift.RawRepresentable {}
+extension iyzicoSDK.Model : Swift.Equatable {}
+extension iyzicoSDK.Model : Swift.Hashable {}
+extension iyzicoSDK.Model : Swift.RawRepresentable {}

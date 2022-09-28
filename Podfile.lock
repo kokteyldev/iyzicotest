@@ -1,0 +1,44 @@
+PODS:
+  - Alamofire (5.4.4)
+  - CocoaLumberjack (3.7.4):
+    - CocoaLumberjack/Core (= 3.7.4)
+  - CocoaLumberjack/Core (3.7.4)
+  - iyzicoSDK (1.0.0):
+    - Alamofire (~> 5.4.1)
+    - CocoaLumberjack/Core (~> 3.7.2)
+    - lottie-ios (~> 3.2.1)
+    - SVGKit (~> 3.0.0)
+  - lottie-ios (3.2.3)
+  - SVGKit (3.0.0):
+    - CocoaLumberjack (~> 3.0)
+
+DEPENDENCIES:
+  - iyzicoSDK (from `https://github.com/iyzico/iyzico-podspecs.git`, branch `feature/objcSupport`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - CocoaLumberjack
+    - lottie-ios
+    - SVGKit
+
+EXTERNAL SOURCES:
+  iyzicoSDK:
+    :branch: feature/objcSupport
+    :git: https://github.com/iyzico/iyzico-podspecs.git
+
+CHECKOUT OPTIONS:
+  iyzicoSDK:
+    :commit: b12fada42b588e48307d2e9613684444fd16dc65
+    :git: https://github.com/iyzico/iyzico-podspecs.git
+
+SPEC CHECKSUMS:
+  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  CocoaLumberjack: 543c79c114dadc3b1aba95641d8738b06b05b646
+  iyzicoSDK: 75396ec52a75aa57eb56160e60540d2f8da7ac21
+  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
+  SVGKit: 1ad7513f8c74d9652f94ed64ddecda1a23864dea
+
+PODFILE CHECKSUM: 4f28b7fad07df0ed460d9e4fed1ff28ca139da9b
+
+COCOAPODS: 1.11.3

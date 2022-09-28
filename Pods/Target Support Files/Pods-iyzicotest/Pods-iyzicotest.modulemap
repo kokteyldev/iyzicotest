@@ -1,0 +1,6 @@
+framework module Pods_iyzicotest {
+  umbrella header "Pods-iyzicotest-umbrella.h"
+
+  export *
+  module * { export * }
+}

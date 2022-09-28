@@ -1,0 +1,11 @@
+framework module iyzicoSDK {
+  umbrella header "iyzicoSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module iyzicoSDK.Swift {
+    header "iyzicoSDK-Swift.h"
+    requires objc
+}
